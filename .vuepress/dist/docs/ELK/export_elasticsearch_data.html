@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>如何导出elasticsearch的数据</title>
+    <meta name="description" content="">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.5e739af7.css" as="style"><link rel="preload" href="/assets/js/app.4b062cd4.js" as="script"><link rel="preload" href="/assets/js/2.8a7646e7.js" as="script"><link rel="preload" href="/assets/js/9.1f82bf0c.js" as="script"><link rel="prefetch" href="/assets/js/10.dd8a7751.js"><link rel="prefetch" href="/assets/js/11.e988e458.js"><link rel="prefetch" href="/assets/js/12.91540972.js"><link rel="prefetch" href="/assets/js/13.951b0d48.js"><link rel="prefetch" href="/assets/js/14.da787c4e.js"><link rel="prefetch" href="/assets/js/15.ccbd2c02.js"><link rel="prefetch" href="/assets/js/16.7b73a760.js"><link rel="prefetch" href="/assets/js/17.0699fb20.js"><link rel="prefetch" href="/assets/js/18.4b81c663.js"><link rel="prefetch" href="/assets/js/19.a392061f.js"><link rel="prefetch" href="/assets/js/20.1bac4774.js"><link rel="prefetch" href="/assets/js/21.e07f9e94.js"><link rel="prefetch" href="/assets/js/22.4a4e39d7.js"><link rel="prefetch" href="/assets/js/23.b231950f.js"><link rel="prefetch" href="/assets/js/24.4f4ef997.js"><link rel="prefetch" href="/assets/js/25.e3651c8d.js"><link rel="prefetch" href="/assets/js/26.1ad27855.js"><link rel="prefetch" href="/assets/js/27.277e2613.js"><link rel="prefetch" href="/assets/js/28.0346889a.js"><link rel="prefetch" href="/assets/js/29.f7fe709e.js"><link rel="prefetch" href="/assets/js/3.60fc23c5.js"><link rel="prefetch" href="/assets/js/30.8a34afb7.js"><link rel="prefetch" href="/assets/js/31.5f9e7113.js"><link rel="prefetch" href="/assets/js/32.6f4828f7.js"><link rel="prefetch" href="/assets/js/4.72c3867a.js"><link rel="prefetch" href="/assets/js/5.ab77f94c.js"><link rel="prefetch" href="/assets/js/6.fd0ae1eb.js"><link rel="prefetch" href="/assets/js/7.b3238d73.js"><link rel="prefetch" href="/assets/js/8.60c0994b.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.5e739af7.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><!---->  <!----> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="如何导出elasticsearch的数据"><a href="#如何导出elasticsearch的数据" aria-hidden="true" class="header-anchor">#</a> 如何导出elasticsearch的数据</h1> <p></p><div class="table-of-contents"><ul><li><a href="#使用elasticsearch-dump工具">使用elasticsearch-dump工具</a></li></ul></div><p></p> <h3 id="使用elasticsearch-dump工具"><a href="#使用elasticsearch-dump工具" aria-hidden="true" class="header-anchor">#</a> 使用elasticsearch-dump工具</h3> <p>elasticsearch-dump（简称elasticdump）是一款用来移动或者保存elasticsearch（简称es）index的工具。<br>
+可以安装或者使用docker启动。<br>
+docker pull taskrabbit/elasticsearch-dump<br>
+主要需要两个参数：input和output，源地址和目的地址。<br>
+源和目的地址可以为：es，文件，stdio。<br>
+es：</p> <ul><li>format: <code>{protocol}://{host}:{port}/{index}</code></li> <li>example: <code>http://127.0.0.1:9200/my_index</code>
+文件：</li> <li>format: <code>{FilePath}</code></li> <li>example: <code>/Users/evantahler/Desktop/dump.json</code>
+stdio:</li> <li>format: stdin / stdout</li> <li>format: <code>$</code>
+命令示例：
+使用docker启动elasticdump</li></ul> <div class="language- extra-class"><pre class="language-text"><code>    docker run --net=host --rm -ti taskrabbit/elasticsearch-dump \
+    --input=https://remote:9200/my_index \
+    --output=http://localhost:9200/my_index \
+    --type=analyzer,mapping,data
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.4b062cd4.js" defer></script><script src="/assets/js/2.8a7646e7.js" defer></script><script src="/assets/js/9.1f82bf0c.js" defer></script>
+  </body>
+</html>

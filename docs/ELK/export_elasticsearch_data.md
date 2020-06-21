@@ -18,7 +18,7 @@ es：
 * example: ```/Users/evantahler/Desktop/dump.json```
 stdio:
 * format: stdin / stdout
-* format: ```$```
+* format: ```$```  
 命令示例：
 使用docker启动elasticdump
 ```
@@ -27,3 +27,4 @@ stdio:
     --output=http://localhost:9200/my_index \
     --type=analyzer,mapping,data
 ```
+

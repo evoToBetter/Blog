@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>elasticsearch使用技巧</title>
+    <meta name="description" content="">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.5e739af7.css" as="style"><link rel="preload" href="/assets/js/app.4b062cd4.js" as="script"><link rel="preload" href="/assets/js/2.8a7646e7.js" as="script"><link rel="preload" href="/assets/js/8.60c0994b.js" as="script"><link rel="prefetch" href="/assets/js/10.dd8a7751.js"><link rel="prefetch" href="/assets/js/11.e988e458.js"><link rel="prefetch" href="/assets/js/12.91540972.js"><link rel="prefetch" href="/assets/js/13.951b0d48.js"><link rel="prefetch" href="/assets/js/14.da787c4e.js"><link rel="prefetch" href="/assets/js/15.ccbd2c02.js"><link rel="prefetch" href="/assets/js/16.7b73a760.js"><link rel="prefetch" href="/assets/js/17.0699fb20.js"><link rel="prefetch" href="/assets/js/18.4b81c663.js"><link rel="prefetch" href="/assets/js/19.a392061f.js"><link rel="prefetch" href="/assets/js/20.1bac4774.js"><link rel="prefetch" href="/assets/js/21.e07f9e94.js"><link rel="prefetch" href="/assets/js/22.4a4e39d7.js"><link rel="prefetch" href="/assets/js/23.b231950f.js"><link rel="prefetch" href="/assets/js/24.4f4ef997.js"><link rel="prefetch" href="/assets/js/25.e3651c8d.js"><link rel="prefetch" href="/assets/js/26.1ad27855.js"><link rel="prefetch" href="/assets/js/27.277e2613.js"><link rel="prefetch" href="/assets/js/28.0346889a.js"><link rel="prefetch" href="/assets/js/29.f7fe709e.js"><link rel="prefetch" href="/assets/js/3.60fc23c5.js"><link rel="prefetch" href="/assets/js/30.8a34afb7.js"><link rel="prefetch" href="/assets/js/31.5f9e7113.js"><link rel="prefetch" href="/assets/js/32.6f4828f7.js"><link rel="prefetch" href="/assets/js/4.72c3867a.js"><link rel="prefetch" href="/assets/js/5.ab77f94c.js"><link rel="prefetch" href="/assets/js/6.fd0ae1eb.js"><link rel="prefetch" href="/assets/js/7.b3238d73.js"><link rel="prefetch" href="/assets/js/9.1f82bf0c.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.5e739af7.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><!---->  <!----> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="elasticsearch使用技巧"><a href="#elasticsearch使用技巧" aria-hidden="true" class="header-anchor">#</a> elasticsearch使用技巧</h1> <p>———— elasticsearch查询操作记录
+</p><div class="table-of-contents"><ul><li><a href="#查询node的磁盘使用情况">查询node的磁盘使用情况</a></li><li><a href="#查询文档数量">查询文档数量</a></li><li><a href="#es聚合查询">es聚合查询</a></li></ul></div><p></p> <h3 id="查询node的磁盘使用情况"><a href="#查询node的磁盘使用情况" aria-hidden="true" class="header-anchor">#</a> 查询node的磁盘使用情况</h3> <p>假设elasticsearch的地址为：localhost:9200.我们可以把localhost:9200/_cat/allocation?v简写为/_cat/allocation?v，省略前面的地址。<br>
+那么如果你想要查询elasticsearch的磁盘使用情况，可以使用curl命令GET /_cat/allocation?v，或者使用浏览器访问/_cat/allocation?v。<br>
+示例：<br>
+shards      disk.indices disk.used    disk.avail disk.total   disk.percent host          ip            node<br>
+28        1.5gb       146gb       877.9gb        1tb           14       10.0.0.1  10.0.0.1   f<br>
+27        1.4gb       153.1gb     870.8gb        1tb           14       10.0.0.2  10.0.0.2   e<br>
+27        1.5gb       157.2gb     866.7gb        1tb           15       10.0.0.3 10.0.0.3  y<br>
+其中_cat是es的监控接口；v则是verbose的简写，在任意一个_cat接口后加上这个选项则可以显示每列数据对应的意义。</p> <h3 id="查询文档数量"><a href="#查询文档数量" aria-hidden="true" class="header-anchor">#</a> 查询文档数量</h3> <ol><li>GET /my_index/_count
+返回信息为：</li></ol> <div class="language- extra-class"><pre class="language-text"><code>{
+  &quot;count&quot; : 156,
+  &quot;_shards&quot; : {
+    &quot;total&quot; : 5,
+    &quot;successful&quot; : 5,
+    &quot;skipped&quot; : 0,
+    &quot;failed&quot; : 0
+  }
+}
+</code></pre></div><ol start="2"><li>使用_cat接口查询：GET /_cat/indices/my_index?v</li></ol> <div class="language- extra-class"><pre class="language-text"><code>health status index          uuid                   pri rep docs.count docs.deleted store.size pri.store.size
+yellow open   analysisreport kvVszqcORqaA7CTldXDRRw   5   1        343            0    821.5kb        821.5kb
+</code></pre></div><p>可以看到两个方法查询的文档数量并不一致。这是因为第一种方法查询的是顶级文档的计数，而_cat接口为嵌套字段创建的文档。
+简单的理解的话，可以把前一个看做es所拥有的记录数，后一个为es中lucene的文档数。</p> <p>参考链接：<a href="https://codeday.me/bug/20190211/635036.html" target="_blank" rel="noopener noreferrer">elasticsearch – 弹性搜索文档计数<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <h3 id="es聚合查询"><a href="#es聚合查询" aria-hidden="true" class="header-anchor">#</a> es聚合查询</h3></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.4b062cd4.js" defer></script><script src="/assets/js/2.8a7646e7.js" defer></script><script src="/assets/js/8.60c0994b.js" defer></script>
+  </body>
+</html>

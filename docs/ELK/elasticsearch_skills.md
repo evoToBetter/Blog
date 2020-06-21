@@ -36,6 +36,8 @@ yellow open   analysisreport kvVszqcORqaA7CTldXDRRw   5   1        343          
 
 参考链接：[elasticsearch – 弹性搜索文档计数](https://codeday.me/bug/20190211/635036.html)
 
+### es 删除index
+  curl -XDELETE localhost:9200/${index_name}
 ### es聚合查询
 
 
