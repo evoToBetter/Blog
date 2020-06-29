@@ -1,6 +1,6 @@
 ---
 title: git技巧搜集
-date: 2020-06-23 14:43:56
+date: 2020-06-26 21:14:40
 sidebar: auto
 sidebarDepth: 2
 categories:
@@ -72,8 +72,35 @@ git ignore会从多个来源读取文件，按优先级从高到低排列为：
 ### 查看当前使用的文件
 ```git ls-files```
 
+## 删除github所有历史记录  
+1. Checkout一个新的分支
+
+```git checkout --orphan latest_branch```
+
+2. 将所有文件加入到这个分支
+
+```git add -A```
+
+3. 添加commit信息，commit文件
+
+```git commit -am "commit message"```
+
+4. 删除原有master分支
+
+```git branch -D master```
+
+5. 把当前分支重命名为master
+
+```git branch -m master```
+
+6. 强制将本地master分支push上去即可
+
+```git push -f origin master```
+
 ## 参考链接：  
 1. [Multiple github accounts on the same computer?](https://stackoverflow.com/questions/3860112/multiple-github-accounts-on-the-same-computer)  
 2. [Manage multiple GIT accounts on a single machine](https://medium.com/@geeky_sh/manage-multiple-git-accounts-on-a-single-machine-d49d710ec229)  
 3. [利用 SSH 的用户配置文件 Config 管理 SSH 会话](https://www.hi-linux.com/posts/14346.html)
 4. [gitignore](https://git-scm.com/docs/gitignore)
+5. [how to delete all commit history in github?
+](https://stackoverflow.com/questions/13716658/how-to-delete-all-commit-history-in-github)
