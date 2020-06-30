@@ -292,7 +292,8 @@ public void copy(Object var1, Object var2, Converter var3) {
 ```
 第二个是用于获取转换类的一个工厂类。  
 BeanCopier准备好转换类后，直接调用转换类的copy方法就可以完成复制了。  
-具体cglib的实现可以参考：[cglib beanCopier 源码实现](https://www.jianshu.com/p/f8b892e08d26)
+具体cglib的实现可以参考：[cglib beanCopier 源码实现](https://www.jianshu.com/p/f8b892e08d26)  
+测试示例代码可以参考我的[code repo](https://github.com/evoToBetter/java_practice/blob/master/src/test/evotobetter/clone/BeanCopyUtilTest.java)
 
 
 ## 参考文档
