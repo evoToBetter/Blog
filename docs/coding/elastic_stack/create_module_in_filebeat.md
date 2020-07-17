@@ -60,3 +60,15 @@ filebeat -e -M "nginx.access.var.paths=[/var/log/nginx/access.log*]"
 ```processors```代表一系列用于输入数据的处理器  
 具体其他设置可以参考[config inputs](https://www.elastic.co/guide/en/beats/filebeat/6.8/configuration-filebeat-options.html)。  
 在配置中可以使用go标准的模板语法，详细可以参考[go template](https://golang.org/pkg/text/template/).  
+我们在实际处理过程中可以使用grok processor来提取log字段，grok使用正则来分隔字段，并且具有很多内置匹配模式，可以直接使用，匹配模式可以参考[logstash grok-patterns](https://github.com/elastic/logstash/blob/v1.4.0/patterns/grok-patterns)
+
+## debug filebeat
+filebeat可以设置参数来配置日志和位置记录文件的存放位置。  
+filebeat enable modules命令:  
+```./filebeat modules enable apache```
+filebeat upload ingest pipeline命令：
+```./filebeat setup --pipeline --modules apache```
+
+filebeat启动解析文件的日志为```Harvester started for file:```，可以通过这个标志判断是否找到了需要解析的日志。  
+指定文件路径的时候，文件匹配符不支持类似```[0-9]+```，建议使用```[0-9]*```。  
+针对带有小数的时间戳，类似```2020-06-22 15:45:42.798291```是可以被grok的```TIMESTAMP_ISO8601```格式匹配上。但是使用```date``` processor的解析时格式设置为```ISO8601```无法解析，需要自己指定格式为```yyyy-MM-dd HH:mm:ss.SSSSSS```,秒的小数部分用```S```表示。

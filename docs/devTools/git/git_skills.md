@@ -97,6 +97,26 @@ git ignore会从多个来源读取文件，按优先级从高到低排列为：
 
 ```git push -f origin master```
 
+## git放弃本地修改，强制拉取更新
+有时候我们需要放弃本地修改，拉取最新远程更新，但是有不想另外开新的一个本地repo(比如本地安装了nodejs包，不想重新安装)，那么就可以这么操作。
+1. 拉取远程最新的内容
+```
+git fetch --all
+```
+2. 强制将HEAD指向最新版本
+```
+git reset --hard origin/master
+```
+
+## 压缩git commit
+可以使用```git rebase```来实现，其实压缩commit就是利用rebase把多个commit合并到一个commit里面。
+具体步骤：
+1. ```git log```确认需要合并的commit和基础commit的id。
+2. ```git rebase -i <base commit id>```使用rebase，base commit id为需要压缩的所有commit的前一个commit的id。比如依次有a,b,c三个commit，合并b和c的时候，需要```git rebase -i a```。
+3. 编辑commit，可以通过指定```squash```来将其合入之前的commit。比如上面的a,b,c可以将c标记为```squash```,将b标记为```pick```，这样就把c合入b了。
+4. 编辑commit信息
+5. 结束
+
 ## 参考链接：  
 1. [Multiple github accounts on the same computer?](https://stackoverflow.com/questions/3860112/multiple-github-accounts-on-the-same-computer)  
 2. [Manage multiple GIT accounts on a single machine](https://medium.com/@geeky_sh/manage-multiple-git-accounts-on-a-single-machine-d49d710ec229)  
