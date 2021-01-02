@@ -17,7 +17,7 @@ scp -r local_folder remote_user@remote_ip:remote_folder
 scp -i secret_file local_file remote_user@remote_ip:remote_file  
 
   将密钥传送到目标服务器  
-  cat .ssh/id_rsa.pub | ssh b@B 'cat >> .ssh/authorized_keys'
+  cat ~/.ssh/id_rsa.pub | ssh b@B 'cat >> .ssh/authorized_keys'
 
 参数：  
 - -r 递归复制整个目录  

@@ -13,7 +13,12 @@ tags:
 分享在elasticsearch使用过程中的一些心得体会
 :::
 <!-- more -->
-# elasticsearch使用技巧  
+## 基础概念
+index
+alias
+template
+
+## elasticsearch使用技巧  
 ———— elasticsearch查询操作记录
 [[toc]]
 ### 查询node的磁盘使用情况
@@ -50,10 +55,26 @@ yellow open   analysisreport kvVszqcORqaA7CTldXDRRw   5   1        343          
 简单的理解的话，可以把前一个看做es所拥有的记录数，后一个为es中lucene的文档数。
 
 参考链接：[elasticsearch – 弹性搜索文档计数](https://codeday.me/bug/20190211/635036.html)
-
-### es 删除index
+### es index相关API
+#### es 删除index
   curl -XDELETE localhost:9200/${index_name}
-### es聚合查询
+### es 查询相关
+#### es限制返回条数
+POST /my_index/_search/
+```
+{
+	"query": {
+		"match_all":{}
+	},
+	"size":2
+}
+```
+### mapping相关API
+#### 创建mapping
+创建mapping需要在
+#### 获取mapping
+GET /my_index/_mapping
+
 
 
 
