@@ -56,8 +56,12 @@ yellow open   analysisreport kvVszqcORqaA7CTldXDRRw   5   1        343          
 
 参考链接：[elasticsearch – 弹性搜索文档计数](https://codeday.me/bug/20190211/635036.html)
 ### es index相关API
+### 创建index
+```PUT /my_index```
+### 插入数据
+```PUT /my_index {$data}```
 #### es 删除index
-  curl -XDELETE localhost:9200/${index_name}
+  ```curl -XDELETE localhost:9200/${index_name}```
 ### es 查询相关
 #### es限制返回条数
 POST /my_index/_search/
@@ -74,6 +78,9 @@ POST /my_index/_search/
 创建mapping需要在
 #### 获取mapping
 GET /my_index/_mapping
+### alias相关
+#### 添加index到alias
+```PUT /myindex01/_alias/alias```
 
 
 

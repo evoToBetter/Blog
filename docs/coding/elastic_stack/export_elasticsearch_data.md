@@ -42,4 +42,7 @@ stdio:
     --output=http://localhost:9200/my_index \
     --type=analyzer,mapping,data
 ```
+### 用户名密码验证
+针对带有认证的elasticsearch，可以使用在url中写入用户名密码的方式来连接：  
+```https://username:password@elasticsearch.example.org```  
 
