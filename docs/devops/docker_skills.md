@@ -1,5 +1,15 @@
 # docker 使用过程中的一些小技巧记录
 [[toc]]
+
+### 为非root用户开启docker权限  
+非root用户无法使用docker的原因是，docker守护线程需要读取Unix套接字/var/run/docker.sock，我们只需要为这个文件增加读权限即可。  
+1. 增加一个docker组  
+sudo newgrp docer
+2. 将文件的组修改为docker组  
+sudo chgrp docker /var/run/docker.sock
+3. 将用户加入到docker组  
+sudo usermod -aG ${whoami} docker  
+注意不加a可能会删除已有的group  
 ### 删除不需要的容器和镜像
 我们在使用docker的过程中，不可避免的会在本地存有很多无用的docker容器和镜像。
 那么我们来介绍下如何快速的删除这些让强迫症很不爽的无用数据。
