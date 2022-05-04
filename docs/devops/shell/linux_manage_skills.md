@@ -1,3 +1,18 @@
+---
+title: ubuntu的使用技巧记录
+date: 2022-05-04 15:40:16
+sidebar: auto
+categories:
+- devOps
+tags:
+- devOps
+- ubuntu
+- shell
+---
+:::tip
+分享一些ubuntu日常使用过程中的技巧记录  
+:::
+<!-- more -->
 ## ubuntu的一些使用技巧  
 ### recovery模式  
 启动ubuntu的时候，可以按ESC，按一次进入BIOS模式，退出BIOS后。  
@@ -40,6 +55,8 @@ sudo hostnamectl set-hostname host.example.com
 sudo hostnamectl set-hostname "Your Pretty HostName" --pretty  
 sudo hostnamectl set-hostname host.example.com --static  
 sudo hostnamectl set-hostname host.example.com --transient  
+### 保存git密码到.netrc文件  
+
 
 
 

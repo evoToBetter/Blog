@@ -33,6 +33,26 @@
 			"<!-- more -->"],
 		"description": ["blog title lines"]
 	},
+	"code block": {
+		"scope": "markdown,md",
+		"prefix": "cobk",
+		"body": [
+			"```$1```"
+		],
+		"description": "code block for markdown"
+	},
+	"code block lines": {
+		"scope": "markdown,md",
+		"prefix": "cobks",
+		"body": [
+			"",
+			"```",
+			"$1",
+			"```",
+			""
+		],
+		"description": "code block with lines for markdown"
+	},
 		"Print to console": {
 		"scope": "javascript,typescript",
 		"prefix": "log",
