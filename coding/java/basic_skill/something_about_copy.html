@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>关于java中复制对象的一些事 | evoToBetter</title>
+    <meta name="generator" content="VuePress 1.5.2">
+    
+    <meta name="description" content="Share For Fun">
+    <link rel="preload" href="/Blog/assets/css/0.styles.c6d0faec.css" as="style"><link rel="preload" href="/Blog/assets/js/app.06c93059.js" as="script"><link rel="preload" href="/Blog/assets/js/3.cf0bfed9.js" as="script"><link rel="preload" href="/Blog/assets/js/1.caa12b57.js" as="script"><link rel="preload" href="/Blog/assets/js/36.cfe0343f.js" as="script"><link rel="prefetch" href="/Blog/assets/js/10.cefbe417.js"><link rel="prefetch" href="/Blog/assets/js/11.1c087184.js"><link rel="prefetch" href="/Blog/assets/js/12.e85c0ce1.js"><link rel="prefetch" href="/Blog/assets/js/13.fb276eaf.js"><link rel="prefetch" href="/Blog/assets/js/14.c81c3a49.js"><link rel="prefetch" href="/Blog/assets/js/15.73fe1f6a.js"><link rel="prefetch" href="/Blog/assets/js/16.e4c2a50a.js"><link rel="prefetch" href="/Blog/assets/js/17.102e0306.js"><link rel="prefetch" href="/Blog/assets/js/18.032a39e1.js"><link rel="prefetch" href="/Blog/assets/js/19.1b106adc.js"><link rel="prefetch" href="/Blog/assets/js/20.5835f6bf.js"><link rel="prefetch" href="/Blog/assets/js/21.b9d24162.js"><link rel="prefetch" href="/Blog/assets/js/22.a3929450.js"><link rel="prefetch" href="/Blog/assets/js/23.b0a21672.js"><link rel="prefetch" href="/Blog/assets/js/24.d6fde27a.js"><link rel="prefetch" href="/Blog/assets/js/25.b4f16534.js"><link rel="prefetch" href="/Blog/assets/js/26.3d925c49.js"><link rel="prefetch" href="/Blog/assets/js/27.3771590c.js"><link rel="prefetch" href="/Blog/assets/js/28.69c46881.js"><link rel="prefetch" href="/Blog/assets/js/29.503cd9e6.js"><link rel="prefetch" href="/Blog/assets/js/30.d845a39d.js"><link rel="prefetch" href="/Blog/assets/js/31.dabe1bab.js"><link rel="prefetch" href="/Blog/assets/js/32.80aab3af.js"><link rel="prefetch" href="/Blog/assets/js/33.7967fb14.js"><link rel="prefetch" href="/Blog/assets/js/34.98a86112.js"><link rel="prefetch" href="/Blog/assets/js/35.75b1b298.js"><link rel="prefetch" href="/Blog/assets/js/37.910d5404.js"><link rel="prefetch" href="/Blog/assets/js/38.d5d6453c.js"><link rel="prefetch" href="/Blog/assets/js/39.7f6b76ec.js"><link rel="prefetch" href="/Blog/assets/js/4.0202e1a4.js"><link rel="prefetch" href="/Blog/assets/js/40.e34dd07e.js"><link rel="prefetch" href="/Blog/assets/js/41.3d677445.js"><link rel="prefetch" href="/Blog/assets/js/42.851ca2cb.js"><link rel="prefetch" href="/Blog/assets/js/43.8f002953.js"><link rel="prefetch" href="/Blog/assets/js/44.657ac2cd.js"><link rel="prefetch" href="/Blog/assets/js/45.fc3b02d9.js"><link rel="prefetch" href="/Blog/assets/js/46.2085ad42.js"><link rel="prefetch" href="/Blog/assets/js/47.b9f66877.js"><link rel="prefetch" href="/Blog/assets/js/48.bdae7d70.js"><link rel="prefetch" href="/Blog/assets/js/49.0011ee10.js"><link rel="prefetch" href="/Blog/assets/js/5.5ee5af7d.js"><link rel="prefetch" href="/Blog/assets/js/50.5a708708.js"><link rel="prefetch" href="/Blog/assets/js/51.c17f376e.js"><link rel="prefetch" href="/Blog/assets/js/52.bf274107.js"><link rel="prefetch" href="/Blog/assets/js/53.0cd5dfa5.js"><link rel="prefetch" href="/Blog/assets/js/54.8673c763.js"><link rel="prefetch" href="/Blog/assets/js/55.f25f0710.js"><link rel="prefetch" href="/Blog/assets/js/56.1542a39a.js"><link rel="prefetch" href="/Blog/assets/js/57.c6012595.js"><link rel="prefetch" href="/Blog/assets/js/58.4ff26a0e.js"><link rel="prefetch" href="/Blog/assets/js/59.40eb21b4.js"><link rel="prefetch" href="/Blog/assets/js/6.d608f019.js"><link rel="prefetch" href="/Blog/assets/js/60.c6da0d97.js"><link rel="prefetch" href="/Blog/assets/js/61.12ceafd1.js"><link rel="prefetch" href="/Blog/assets/js/62.818392e8.js"><link rel="prefetch" href="/Blog/assets/js/63.a807cc3c.js"><link rel="prefetch" href="/Blog/assets/js/64.99472410.js"><link rel="prefetch" href="/Blog/assets/js/65.88f5f047.js"><link rel="prefetch" href="/Blog/assets/js/66.21596e55.js"><link rel="prefetch" href="/Blog/assets/js/67.701bf769.js"><link rel="prefetch" href="/Blog/assets/js/68.f069a295.js"><link rel="prefetch" href="/Blog/assets/js/7.49059aa9.js"><link rel="prefetch" href="/Blog/assets/js/8.c97e8683.js"><link rel="prefetch" href="/Blog/assets/js/9.389a4622.js">
+    <link rel="stylesheet" href="/Blog/assets/css/0.styles.c6d0faec.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container" data-v-19557b78><div data-v-19557b78><div id="loader-wrapper" class="loading-wrapper" data-v-d48f4d20 data-v-19557b78 data-v-19557b78><div class="loader-main" data-v-d48f4d20><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div></div> <!----> <!----></div> <div class="password-shadow password-wrapper-out" style="display:none;" data-v-64685f0e data-v-19557b78 data-v-19557b78><h3 class="title" style="display:none;" data-v-64685f0e data-v-64685f0e>evoToBetter</h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-64685f0e data-v-64685f0e><input type="password" value="" data-v-64685f0e> <span data-v-64685f0e>Konck! Knock!</span> <button data-v-64685f0e>OK</button></label> <div class="footer" style="display:none;" data-v-64685f0e data-v-64685f0e><span data-v-64685f0e><i class="iconfont reco-theme" data-v-64685f0e></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-64685f0e>vuePress-theme-reco</a></span> <span data-v-64685f0e><i class="iconfont reco-copyright" data-v-64685f0e></i> <a data-v-64685f0e><span data-v-64685f0e>evoToBetter</span>
+            
+          <!---->
+          2022
+        </a></span></div></div> <div class="hide" data-v-19557b78><header class="navbar" data-v-19557b78><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/Blog/" class="home-link router-link-active"><!----> <span class="site-name">evoToBetter</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/Blog/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  TimeLine
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Category
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Blog/categories/algorithm/" class="nav-link"><i class="iconfont undefined"></i>
+  algorithm
+</a></li><li class="dropdown-item"><!----> <a href="/Blog/categories/design/" class="nav-link"><i class="iconfont undefined"></i>
+  design
+</a></li><li class="dropdown-item"><!----> <a href="/Blog/categories/database/" class="nav-link"><i class="iconfont undefined"></i>
+  database
+</a></li><li class="dropdown-item"><!----> <a href="/Blog/categories/elastic stack/" class="nav-link"><i class="iconfont undefined"></i>
+  elastic stack
+</a></li><li class="dropdown-item"><!----> <a href="/Blog/categories/design pattern/" class="nav-link"><i class="iconfont undefined"></i>
+  design pattern
+</a></li><li class="dropdown-item"><!----> <a href="/Blog/categories/nodejs/" class="nav-link"><i class="iconfont undefined"></i>
+  nodejs
+</a></li><li class="dropdown-item"><!----> <a href="/Blog/categories/blog/" class="nav-link"><i class="iconfont undefined"></i>
+  blog
+</a></li><li class="dropdown-item"><!----> <a href="/Blog/categories/golang/" class="nav-link"><i class="iconfont undefined"></i>
+  golang
+</a></li><li class="dropdown-item"><!----> <a href="/Blog/categories/go/" class="nav-link"><i class="iconfont undefined"></i>
+  go
+</a></li><li class="dropdown-item"><!----> <a href="/Blog/categories/java/" class="nav-link"><i class="iconfont undefined"></i>
+  java
+</a></li><li class="dropdown-item"><!----> <a href="/Blog/categories/project manage/" class="nav-link"><i class="iconfont undefined"></i>
+  project manage
+</a></li><li class="dropdown-item"><!----> <a href="/Blog/categories/python/" class="nav-link"><i class="iconfont undefined"></i>
+  python
+</a></li><li class="dropdown-item"><!----> <a href="/Blog/categories/git/" class="nav-link"><i class="iconfont undefined"></i>
+  git
+</a></li><li class="dropdown-item"><!----> <a href="/Blog/categories/jenkins/" class="nav-link"><i class="iconfont undefined"></i>
+  jenkins
+</a></li><li class="dropdown-item"><!----> <a href="/Blog/categories/k8s/" class="nav-link"><i class="iconfont undefined"></i>
+  k8s
+</a></li><li class="dropdown-item"><!----> <a href="/Blog/categories/devOps/" class="nav-link"><i class="iconfont undefined"></i>
+  devOps
+</a></li><li class="dropdown-item"><!----> <a href="/Blog/categories/distributed_system/" class="nav-link"><i class="iconfont undefined"></i>
+  distributed_system
+</a></li><li class="dropdown-item"><!----> <a href="/Blog/categories/cloud/" class="nav-link"><i class="iconfont undefined"></i>
+  cloud
+</a></li></ul></div></div><div class="nav-item"><a href="/Blog/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tag
+</a></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-19557b78></div> <aside class="sidebar" data-v-19557b78><div class="personal-info-wrapper" data-v-042e23d4><img src="/Blog/hiker.jpg" alt="author-avatar" class="personal-img" data-v-042e23d4> <h3 class="name" data-v-042e23d4>
+    evoToBetter
+  </h3> <div class="num" data-v-042e23d4><div data-v-042e23d4><h3 data-v-042e23d4>32</h3> <h6 data-v-042e23d4>Article</h6></div> <div data-v-042e23d4><h3 data-v-042e23d4>50</h3> <h6 data-v-042e23d4>Tag</h6></div></div> <hr data-v-042e23d4></div> <nav class="nav-links"><div class="nav-item"><a href="/Blog/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  TimeLine
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Category
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Blog/categories/algorithm/" class="nav-link"><i class="iconfont undefined"></i>
+  algorithm
+</a></li><li class="dropdown-item"><!----> <a href="/Blog/categories/design/" class="nav-link"><i class="iconfont undefined"></i>
+  design
+</a></li><li class="dropdown-item"><!----> <a href="/Blog/categories/database/" class="nav-link"><i class="iconfont undefined"></i>
+  database
+</a></li><li class="dropdown-item"><!----> <a href="/Blog/categories/elastic stack/" class="nav-link"><i class="iconfont undefined"></i>
+  elastic stack
+</a></li><li class="dropdown-item"><!----> <a href="/Blog/categories/design pattern/" class="nav-link"><i class="iconfont undefined"></i>
+  design pattern
+</a></li><li class="dropdown-item"><!----> <a href="/Blog/categories/nodejs/" class="nav-link"><i class="iconfont undefined"></i>
+  nodejs
+</a></li><li class="dropdown-item"><!----> <a href="/Blog/categories/blog/" class="nav-link"><i class="iconfont undefined"></i>
+  blog
+</a></li><li class="dropdown-item"><!----> <a href="/Blog/categories/golang/" class="nav-link"><i class="iconfont undefined"></i>
+  golang
+</a></li><li class="dropdown-item"><!----> <a href="/Blog/categories/go/" class="nav-link"><i class="iconfont undefined"></i>
+  go
+</a></li><li class="dropdown-item"><!----> <a href="/Blog/categories/java/" class="nav-link"><i class="iconfont undefined"></i>
+  java
+</a></li><li class="dropdown-item"><!----> <a href="/Blog/categories/project manage/" class="nav-link"><i class="iconfont undefined"></i>
+  project manage
+</a></li><li class="dropdown-item"><!----> <a href="/Blog/categories/python/" class="nav-link"><i class="iconfont undefined"></i>
+  python
+</a></li><li class="dropdown-item"><!----> <a href="/Blog/categories/git/" class="nav-link"><i class="iconfont undefined"></i>
+  git
+</a></li><li class="dropdown-item"><!----> <a href="/Blog/categories/jenkins/" class="nav-link"><i class="iconfont undefined"></i>
+  jenkins
+</a></li><li class="dropdown-item"><!----> <a href="/Blog/categories/k8s/" class="nav-link"><i class="iconfont undefined"></i>
+  k8s
+</a></li><li class="dropdown-item"><!----> <a href="/Blog/categories/devOps/" class="nav-link"><i class="iconfont undefined"></i>
+  devOps
+</a></li><li class="dropdown-item"><!----> <a href="/Blog/categories/distributed_system/" class="nav-link"><i class="iconfont undefined"></i>
+  distributed_system
+</a></li><li class="dropdown-item"><!----> <a href="/Blog/categories/cloud/" class="nav-link"><i class="iconfont undefined"></i>
+  cloud
+</a></li></ul></div></div><div class="nav-item"><a href="/Blog/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tag
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>关于java中复制对象的一些事</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/Blog/coding/java/basic_skill/something_about_copy.html#浅复制shallow-copy" class="sidebar-link">浅复制shallow copy</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/Blog/coding/java/basic_skill/something_about_copy.html#深度复制" class="sidebar-link">深度复制</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/Blog/coding/java/basic_skill/something_about_copy.html#apache-beanutils与cglib-beancopier对比" class="sidebar-link">Apache BeanUtils与cglib BeanCopier对比</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/Blog/coding/java/basic_skill/something_about_copy.html#参考文档" class="sidebar-link">参考文档</a><ul class="sidebar-sub-headers"></ul></li></ul></section></li></ul> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-64685f0e data-v-19557b78><h3 class="title" style="display:none;" data-v-64685f0e data-v-64685f0e>关于java中复制对象的一些事</h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-64685f0e data-v-64685f0e><input type="password" value="" data-v-64685f0e> <span data-v-64685f0e>Konck! Knock!</span> <button data-v-64685f0e>OK</button></label> <div class="footer" style="display:none;" data-v-64685f0e data-v-64685f0e><span data-v-64685f0e><i class="iconfont reco-theme" data-v-64685f0e></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-64685f0e>vuePress-theme-reco</a></span> <span data-v-64685f0e><i class="iconfont reco-copyright" data-v-64685f0e></i> <a data-v-64685f0e><span data-v-64685f0e>evoToBetter</span>
+            
+          <!---->
+          2022
+        </a></span></div></div> <div data-v-19557b78><main class="page"><div class="page-title" style="display:none;"><h1>关于java中复制对象的一些事</h1> <hr> <div data-v-34ea29db><i class="iconfont reco-account" data-v-34ea29db><span data-v-34ea29db>evoToBetter</span></i> <i class="iconfont reco-date" data-v-34ea29db><span data-v-34ea29db>2020-06-26 15:37:27</span></i> <!----> <i class="iconfont reco-tag tags" data-v-34ea29db><span class="tag-item" data-v-34ea29db>backend</span><span class="tag-item" data-v-34ea29db>java</span><span class="tag-item" data-v-34ea29db>knowledge</span></i></div></div> <div class="theme-reco-content content__default" style="display:none;"><div class="custom-block tip"><p>深入了解java中对对象的clone</p></div> <h2 id="浅复制shallow-copy"><a href="#浅复制shallow-copy" class="header-anchor">#</a> 浅复制shallow copy</h2> <p>实现<code>Cloneable</code>接口，那么其实现的就是浅复制。<br>
+存在的问题，就是仅仅复制了该对象的属性，而没有针对属性中的引用进行复制，导致复制前后两个对象属性中引用的是相同地址。如</p> <div class="language- extra-class"><pre class="language-text"><code>public class Dog implements Cloneable {
+    public final List&lt;String&gt; names=new ArrayList&lt;&gt;();
+    public List&lt;String&gt; nicknames =new ArrayList&lt;&gt;();
+    public int age;
+    public int weight;
+
+    public Dog clone(){
+        try{
+            return (Dog)super.clone();
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+            throw new Error(&quot;Is too&quot;);
+        }
+    }
+}
+</code></pre></div><p>我们对其进行复制<code>Dog bobBarker=bowser.clone();</code>，得到的对象和bowser的names和nicknames都是相同的。导致向names或者nicknames里写入内容会同时出现在两个对象中。<br>
+尤其是names，其被标记为final，我们不能使用其他方法在复制的时候对其赋值，重新初始化names为一个新的list。<br>
+这是我们在使用cloneable接口的时候需要注意这些限制。<br>
+clone其实我们就可以看做是一个额外的构造器，其进行克隆的时候不应该会有影响原有对象的行为。<br>
+为了完全复制一个对象，我们就需要使用深复制。<br>
+并且实现了cloneable接口，还需要注意使其在多线程中的线程安全问题。<br>
+另外一个实现复制的办法是，复制构造器或者复制工厂方法。</p> <h2 id="深度复制"><a href="#深度复制" class="header-anchor">#</a> 深度复制</h2> <p>实现深度复制的主要思路为使用序列化实现。<br>
+示例代码：</p> <div class="language- extra-class"><pre class="language-text"><code>public static Object deepCopy(Object oldObject) throws IOException, ClassNotFoundException {
+        ObjectOutputStream oos=null;
+        ObjectInputStream ois=null;
+        try{
+            ByteArrayOutputStream bos=new ByteArrayOutputStream();
+            oos=new ObjectOutputStream(bos);
+            oos.writeObject(oldObject);
+            oos.flush();
+            ByteArrayInputStream bis=new ByteArrayInputStream(bos.toByteArray());
+            ois=new ObjectInputStream(bis);
+            return ois.readObject();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw e;
+        }finally {
+            if(oos!=null){
+                oos.close();
+            }
+            if(ois!=null){
+                ois.close();
+            }
+        }
+    }
+</code></pre></div><p>被序列化的对象需要实现Serializable接口。<br>
+参考代码地址：<a href="https://github.com/evoToBetter/java_practice/tree/master/src/main/java/evotobetter/clone" target="_blank" rel="noopener noreferrer">java copy practice<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a><br>
+第三方工具：</p> <ol><li>Apache提供的SerializationUtils.clone(T)</li> <li>GSON/Jackson的json序列化反序列化</li> <li>apache的BeanUtils</li> <li>CGLIB的beancopier，据说性能比BeanUtils好。</li></ol> <h2 id="apache-beanutils与cglib-beancopier对比"><a href="#apache-beanutils与cglib-beancopier对比" class="header-anchor">#</a> Apache BeanUtils与cglib BeanCopier对比</h2> <p>前期准备：<br>
+使用版本：commons-beanutils 1.9.4，cglib 3.3.0<br>
+两个数据类+一个准备数据的工具类：</p> <div class="language- extra-class"><pre class="language-text"><code>public class User {
+    private Integer id;
+    private String name;
+    private Integer age;
+    private LocalDateTime gmtBoth;
+    private BigDecimal balance;
+
+    public User() {
+    }
+
+    public User(Integer id, String name, Integer age, LocalDateTime gmtBoth, BigDecimal balance) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+        this.gmtBoth = gmtBoth;
+        this.balance = balance;
+    }
+
+    public LocalDateTime getGmtBoth() {
+        return gmtBoth;
+    }
+
+    public void setGmtBoth(LocalDateTime gmtBoth) {
+        this.gmtBoth = gmtBoth;
+    }
+
+    public BigDecimal getBalance() {
+        return balance;
+    }
+
+    public void setBalance(BigDecimal balance) {
+        this.balance = balance;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return &quot;User{&quot; +
+                &quot;id=&quot; + id +
+                &quot;, name='&quot; + name + '\'' +
+                &quot;, age=&quot; + age +
+                &quot;, gmtBoth=&quot; + gmtBoth +
+                &quot;, balance=&quot; + balance +
+                '}';
+    }
+}
+
+public class NormalUser {
+    private int id;
+    private String name;
+    private int age;
+    private String gmtBoth;
+    private String balance;
+
+    public NormalUser() {
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getGmtBoth() {
+        return gmtBoth;
+    }
+
+    public void setGmtBoth(String gmtBoth) {
+        this.gmtBoth = gmtBoth;
+    }
+
+    public String getBalance() {
+        return balance;
+    }
+
+    public void setBalance(String balance) {
+        this.balance = balance;
+    }
+
+    @Override
+    public String toString() {
+        return &quot;NormalUser{&quot; +
+                &quot;id=&quot; + id +
+                &quot;, name='&quot; + name + '\'' +
+                &quot;, age=&quot; + age +
+                &quot;, gmtBoth='&quot; + gmtBoth + '\'' +
+                &quot;, balance='&quot; + balance + '\'' +
+                '}';
+    }
+}
+
+public class DataUtil {
+
+    public static User createData(int index){
+        return new User(index,&quot;vUser&quot;+index,index*10, LocalDateTime.now(),new BigDecimal(index*10));
+    }
+
+    public static List&lt;User&gt; createDataList(int size){
+        List&lt;User&gt; users=new ArrayList&lt;&gt;();
+        for(int i=0; i&lt;size; i++){
+            users.add(createData(i));
+        }
+        return users;
+    }
+}
+</code></pre></div><p>BeanUtils使用实例,直接转换,但是注意需要处理可能的异常：</p> <div class="language- extra-class"><pre class="language-text"><code>    @Test
+    public void testCopyBeanByBeanUtilsForDifferentClass() throws InvocationTargetException, IllegalAccessException {
+
+        User user = DataUtil.createData(1);
+        logger.info(&quot;Before copy: {}&quot;, user);
+        NormalUser user1 = new NormalUser();
+        BeanUtils.copyProperties(user1, user);
+        logger.info(&quot;After copy: {}&quot;, user1);
+    }
+</code></pre></div><p>BeanCopier实例,由于两个类直接有属性不同，需要转换类来辅助转换：</p> <div class="language- extra-class"><pre class="language-text"><code>public class UserConverter implements Converter {
+
+    DateTimeFormatter dtf=DateTimeFormatter.ofPattern(&quot;yyyy-MM-dd HH:mm:ss&quot;);
+
+    @Override
+    public Object convert(Object value, Class target, Object context) {
+        if(value instanceof Integer){
+            return ((Integer) value).intValue();
+        }else if(value instanceof LocalDateTime){
+            return dtf.format((LocalDateTime)value);
+        }else if(value instanceof BigDecimal){
+            return ((BigDecimal) value).toPlainString();
+        }
+        return value;
+    }
+}
+    @Test
+    public void testCopyWithConverter() {
+        String generatedCodePath = &quot;target/generated-sources&quot;;
+        System.setProperty(DebuggingClassWriter.DEBUG_LOCATION_PROPERTY, generatedCodePath);
+        User user = DataUtil.createData(1);
+        logger.info(&quot;Before copy: {}&quot;, user);
+        BeanCopier beanCopier = BeanCopier.create(User.class, NormalUser.class, true);
+        NormalUser user1 = new NormalUser();
+        beanCopier.copy(user, user1, new UserConverter());
+        logger.info(&quot;After copy: {}&quot;, user1);
+    }
+</code></pre></div><p>BeanUtils是基于反射来实现的，而BeanCopier则是基于修改字节码实现的。<br>
+如果想要查看字节码的话，可以在JVM参数里设置。</p> <div class="language- extra-class"><pre class="language-text"><code>String generatedCodePath = &quot;target/generated-sources&quot;;
+        System.setProperty(DebuggingClassWriter.DEBUG_LOCATION_PROPERTY, generatedCodePath);
+</code></pre></div><p>查看生成的类，会有两个类，第一个名字如<code>Object$$BeanCopierByCGLIB$$62379102</code>,第二个名字如<code>BeanCopier$BeanCopierKey$$KeyFactoryByCGLIB$$f32401fd</code>。<br>
+第一个类为转换类，其中包含了如何拷贝：</p> <div class="language- extra-class"><pre class="language-text"><code>public void copy(Object var1, Object var2, Converter var3) {
+        NormalUser var4 = (NormalUser)var2;
+        User var5 = (User)var1;
+        Object var10001 = var3.convert(var5.getAge(), Integer.TYPE, &quot;setAge&quot;);
+        var4.setAge(var10001 == null ? 0 : ((Number)var10001).intValue());
+        var4.setGmtBoth((String)var3.convert(var5.getGmtBoth(), CGLIB$load_class$java$2Elang$2EString, &quot;setGmtBoth&quot;));
+        var10001 = var3.convert(var5.getId(), Integer.TYPE, &quot;setId&quot;);
+        var4.setId(var10001 == null ? 0 : ((Number)var10001).intValue());
+        var4.setName((String)var3.convert(var5.getName(), CGLIB$load_class$java$2Elang$2EString, &quot;setName&quot;));
+    }
+</code></pre></div><p>第二个是用于获取转换类的一个工厂类。<br>
+BeanCopier准备好转换类后，直接调用转换类的copy方法就可以完成复制了。<br>
+具体cglib的实现可以参考：<a href="https://www.jianshu.com/p/f8b892e08d26" target="_blank" rel="noopener noreferrer">cglib beanCopier 源码实现<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a><br>
+测试示例代码可以参考我的<a href="https://github.com/evoToBetter/java_practice/blob/master/src/test/evotobetter/clone/BeanCopyUtilTest.java" target="_blank" rel="noopener noreferrer">code repo<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <h2 id="参考文档"><a href="#参考文档" class="header-anchor">#</a> 参考文档</h2> <ol><li><a href="http://www.xenoveritas.org/blog/xeno/java_copy_constructors_and_clone" target="_blank" rel="noopener noreferrer">java copy constructors and clone<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li> <li><a href="https://www.amazon.cn/dp/0134685997" target="_blank" rel="noopener noreferrer">effective java<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li> <li><a href="https://houbb.github.io/2019/01/09/java-deep-copy" target="_blank" rel="noopener noreferrer">java 浅拷贝，深度拷贝与属性复制<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li> <li><a href="https://juejin.im/post/5dc2b293e51d456e65283e61" target="_blank" rel="noopener noreferrer">BeanUtils与BeanCopier对比<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li> <li><a href="https://yq.aliyun.com/articles/695290" target="_blank" rel="noopener noreferrer">cglib bean copy介绍<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li> <li><a href="https://www.jianshu.com/p/f8b892e08d26" target="_blank" rel="noopener noreferrer">cglib beanCopier 源码实现<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ol></div> <footer class="page-edit" style="display:none;"><!----> <div class="last-updated"><span class="prefix">上次更新: </span> <span class="time">6/30/2020, 12:24:30 AM</span></div></footer> <!----> <!----></main> <!----></div></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-44bd5a18 data-v-44bd5a18><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-44bd5a18><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-44bd5a18></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-44bd5a18></path></svg></div></div></div>
+    <script src="/Blog/assets/js/app.06c93059.js" defer></script><script src="/Blog/assets/js/3.cf0bfed9.js" defer></script><script src="/Blog/assets/js/1.caa12b57.js" defer></script><script src="/Blog/assets/js/36.cfe0343f.js" defer></script>
+  </body>
+</html>
