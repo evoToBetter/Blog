@@ -38,3 +38,5 @@ code snippets的语法基于```TextMate```，具体可以搜索学习。
 ```ctrl+shift+v```
 #### 万能键  
 ```ctrl+shift+p```
+#### 搜索文件
+```crtl+p```

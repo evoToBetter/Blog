@@ -8,6 +8,7 @@ module.exports = {
     type: 'blog',
     authorAvatar: '/hiker.jpg',
     noFoundPageByTecent: false,
+    lastUpdated: '上次更新',
     nav: [
       {text: 'TimeLine', link: '/timeline/', icon: 'reco-date'}
     ],
