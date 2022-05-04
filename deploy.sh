@@ -4,6 +4,7 @@ set -e
 
 git pull
 
+npm install
 npm run docs:build
 
 cd public
